@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "nitesh31mishra",
+      "name": "Nitesh Mishra",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54522260?v=4",
+      "profile": "https://github.com/nitesh31mishra",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "ncsu_se_fall22_22_hw2-5",
+  "projectOwner": "agupta15k",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
