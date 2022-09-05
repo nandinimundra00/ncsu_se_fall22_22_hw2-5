@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "agupta15k",
+      "name": "Akash Gupta",
+      "avatar_url": "https://avatars.githubusercontent.com/u/112216701?v=4",
+      "profile": "https://github.com/agupta15k",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "ncsu_se_fall22_22_hw2-5",
+  "projectOwner": "agupta15k",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
