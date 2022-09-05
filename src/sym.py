@@ -54,7 +54,6 @@ class Sym:
             if (self._has[i] > most):
                 mode = i
                 most = self._has[i]
-
         return mode
 
     '''
@@ -75,5 +74,4 @@ class Sym:
         for i in self._has:
             if self._has[i] > 0:
                 e = e-(self.entropy(self._has[i]/self.n))
-
         return e
