@@ -35,6 +35,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "nitesh31mishra",
+      "name": "Nitesh Mishra",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54522260?v=4",
+      "profile": "https://github.com/nitesh31mishra",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
