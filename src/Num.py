@@ -6,7 +6,7 @@ import random
 the = {'nums': 512}
 
 '''
-Class `Num` ummarizes a stream of numbers. 
+Class `Num` Summarizes a stream of numbers. 
 '''
 
 
