@@ -113,10 +113,3 @@ def o(t):
 def oo(t):
     print(o(t))
     return t
-
-
-
-
-
-print(test_num())
-print(test_bignum())
