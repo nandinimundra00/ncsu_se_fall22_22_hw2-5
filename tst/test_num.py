@@ -9,7 +9,6 @@ def test_num():
     mid, div = num.mid(), num.div()
     return 50 <= mid and mid <= 52 and 30.5 < div and div < 32
 
-
 def test_bignum():
     num = Num()
     the['nums'] = 32
