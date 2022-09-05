@@ -2,6 +2,7 @@ from src.sym import Sym
 from src.main import oo
 
 def test_sym():
+    
     sym = Sym()
     for i, x in ["a", "a", "a", "a" , "b", "b", "c"]:
         sym.add(x)
