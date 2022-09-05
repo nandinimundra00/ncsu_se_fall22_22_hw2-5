@@ -1,10 +1,90 @@
+# NCSU_SE_Fall22_22_hw2_5  
+**Migrating csv.lua to Python based library** 
+
+
+[![GitHub](https://img.shields.io/github/license/agupta15k/ncsu_se_fall22_22_hw2-5?color=green&label=license&logo=MIT)](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/blob/main/LICENSE.md)
+[![Github](https://img.shields.io/badge/language-python-red.svg)](https://www.python.org/downloads/)
+[![GitHub issues](https://img.shields.io/github/issues-raw/agupta15k/ncsu_se_fall22_22_hw2-5)](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/issues)
+[![Github closed issues](https://img.shields.io/github/issues-closed-raw/agupta15k/ncsu_se_fall22_22_hw2-5)](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/issues?q=is%3Aissue+is%3Aclosed)
+[![Github pull requests](https://img.shields.io/github/issues-pr/agupta15k/ncsu_se_fall22_22_hw2-5?color=red)](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/pulls)
+[![Github closed pull requests](https://img.shields.io/github/issues-pr-closed/agupta15k/ncsu_se_fall22_22_hw2-5?color=blue)](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/pulls?q=is%3Apr+is%3Aclosed)
+[![Github all contributors](https://img.shields.io/github/contributors/agupta15k/ncsu_se_fall22_22_hw2-5?color=green)](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/graphs/contributors)
+
+<!-- ## Why Calculator? -->
+
+<!-- With all the day-to-day expenses you would always like to have a summation tool to reduce un-necessary expenses and be updated with the amount spent.
+
+`"Money often costs too much"` - Ralph Waldo Emerson
+
+`Calculator` is a command line tool that helps you to do arithematic operations on your day to day expenses and helps you be on track. -->
+
+- **Built on**
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="40" height="40" />
+
+- **Language used:** Python
+- **Libraries used:** pytest
+
+## Getting started:
+
+  - ### Prerequisite:
+    - Download [Python3](https://www.python.org/downloads/).
+
+  - ### Installation:
+    
+    - Install all the requirements:
+
+      `pip install -r requirements.txt`
+
+  - ### Run Instructions
+
+    - Clone [this (Calculator) github repo](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5).
+
+    - Navigate to the project root directory
+  
+    - Run:
+
+      `python -m src.main`
+    
+    - Test:
+
+      `python -m pytest`
+
+## Directory structure
+
+    .
+    ├── .github
+    │   ├── workflows          
+    │   │   ├── python-app.yml          # Workflow for git actions
+    ├── Docs
+    │   ├── TestFile.md                 # Test file
+    ├── src
+    │   ├── __init__.py                 # Init file for src directory
+    │   ├── main.py                     # Main file for src directory
+    │   ├── operations.py               # Util file for calculator operations
+    ├── tst
+    │   ├── README.md                   # Readme file for unit tests
+    │   ├── __init__.py                 # Init file for tst directory
+    │   ├── test_main.py                # Tests file for src/main.py
+    │   ├── test_operations.py          # Tests file for src/operations.py
+    ├── .all-contributorsrc             # File for all-contributor bot
+    ├── .gitattributes                  # File for git attributes
+    ├── .gitignore                      # File for git ignore
+    ├── CODE_OF_CONDUCT.md              # Code of conduct for repository
+    ├── CONTRIBUTING.md                 # Details about contributing to the repository
+    ├── LICENSE.md                      # MIT License details
+    ├── README.md                       # Readme file for repository
+    ├── requirements.txt                # Details of dependency packages
+    └── setup.py                        # Setup file for the module
+
+## Roadmap
+  - [List of Roadmap and their corresponding open issues](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/issues/)
+
+## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
-README
-
-## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
