@@ -1,0 +1,57 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "nagarajumadamshetti",
+      "name": "nagaraj madamshetti",
+      "avatar_url": "https://avatars.githubusercontent.com/u/42158715?v=4",
+      "profile": "https://github.com/nagarajumadamshetti",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "agupta15k",
+      "name": "Akash Gupta",
+      "avatar_url": "https://avatars.githubusercontent.com/u/112216701?v=4",
+      "profile": "https://github.com/agupta15k",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "Arunsp2000",
+      "name": "Arunsp2000",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56639917?v=4",
+      "profile": "https://github.com/Arunsp2000",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "nitesh31mishra",
+      "name": "Nitesh Mishra",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54522260?v=4",
+      "profile": "https://github.com/nitesh31mishra",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "ncsu_se_fall22_22_hw2-5",
+  "projectOwner": "agupta15k",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
