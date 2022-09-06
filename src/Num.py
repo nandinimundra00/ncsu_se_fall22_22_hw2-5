@@ -69,7 +69,7 @@ class Num:
             if pos != -1:
                 self.isSorted = False
                 self._has[pos] = v
-    
+
     def per(self, t, p):
         p = math.floor(((p or 0.5) * len(t)) + 0.5)
         return t[max(1, min(len(t), p)) - 1]
