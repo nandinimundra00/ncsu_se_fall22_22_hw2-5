@@ -1,3 +1,5 @@
+# Contains constants used by other files
+
 constants = {
     'help': str("CSV : summarized csv file\n"
                    "(c) 2022 Tim Menzies <timm@ieee.org> BSD-2 license\n"
@@ -12,5 +14,11 @@ constants = {
                    " -S  --Seperator feild seperator                       = ,\n"
     )
 }
-def getConstant(key):
+
+
+def getConstant(key: str):
+    """
+    Returns constant from the constants dict based on the input
+    @key: key to match the value from dict
+    """
     return constants[key]

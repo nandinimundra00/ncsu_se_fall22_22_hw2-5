@@ -1,18 +1,44 @@
 import csv
-from ntpath import join
 import os
 import re
 from data.constants import getConstant
 import sys
+from src.Num import Num
+from src.sym import Sym
 
 
 # Todo : Move methods into their respective files
-def coerce(s: str) -> int | float | bool | str:
-    """
-    Parse 'the' config settings from 'help'
-    @s: string input
-    """
-    try:
+
+'''
+Class Csv handles all the utility functions at present
+'''
+
+
+class Csv:
+    def __init__(self):
+        """
+        Constructor to assing initial values
+        """
+        self.help = getConstant('help')
+        tempThe = self.getValuesFromHelp()
+        self.the = self.cli(tempThe)
+        self.fails = 0
+
+    def getValuesFromHelp(self) -> dict:
+        """
+        Pull help from constants and parse values into 'the'
+        """
+        matchedVals = re.findall('\n [-][^\s]+[\s]+[-][-]([^\s]+)[^\n]+= ([^\s]+)', self.help)
+        updatedThe = {}
+        for val in matchedVals:
+            updatedThe[val[0]] = self.coerce(val[1])
+        return updatedThe
+
+    def coerce(self, s: str) -> int | float | bool | str:
+        """
+        Parse 'the' config settings from 'help'
+        @s: string input
+        """
         def fun(s1: str) -> bool | str:
             """
             Converts incoming string into either int, float or bool based on it's type
@@ -33,78 +59,57 @@ def coerce(s: str) -> int | float | bool | str:
                 # val = fun(s.strip())  Can run inbuilt strip to remove leading and trailing spaces, but using implementation similar to lua code
                 val = fun(re.search('^\s*(.+?)\s*$', s).group(1))
         return val
-    except Exception as e:
-        print('Some error occurred in coerce function. Please try again. Error: ', e)
-        exit()
 
-
-def getValuesFromHelp(help: str) -> dict:
-    """
-    Pull help from constants and parse values into 'the'
-    @help: help string from constants
-    """
-    try:
-        matchedVals = re.findall('\n [-][^\s]+[\s]+[-][-]([^\s]+)[^\n]+= ([^\s]+)', help)
-        updatedThe = {}
-        for val in matchedVals:
-            updatedThe[val[0]] = coerce(val[1])
-        return updatedThe
-    except Exception as e:
-        print('Some error occurred in getValuesFromHelp function. Please try again. Error: ', e)
-        exit()
-
-
-def cli(t: dict, help: str) -> dict:
-    """
-    Update value in 'the' based on command line arguments. Print 'help' string if user enters help options
-    @t: 'the' object
-    @help: help string from constants
-    """
-    try:
+    def cli(self, t: dict) -> dict:
+        """
+        Update value in 'the' based on command line arguments. Print 'help' string if user enters help options
+        @t: 'the' object
+        """
         tKeys = list(t.keys())
+        args = sys.argv
         for key in tKeys:
             val = str(t[key])
-            args = sys.argv
             for i in range(1, len(args)):
                 if args[i] == '-' + key[0:1] or args[i] == '--' + key:
                     val = val == "False" and "True" or val == "True" and "False" or args[i + 1]
-            t[key] = coerce(val)
+            t[key] = self.coerce(val)
         if t['help'] == True:
-            print('\n', help, '\n')
+            print('\n', self.help, '\n')
             exit()
         return t
-    except Exception as e:
-        print('Some error occurred in cli function. Please try again. Error: ', e)
-        exit()
 
-
-def readFromCSV(fname: str, the: dict, func) -> None:
-    """
-    Read content from CSV file and run a custom function on each row
-    @fname: file path with file name
-    @the: 'the' object
-    @func: custom user function
-    """
-    try:
-        sep = the['Seperator']
+    def readFromCSV(self, fname: str, func) -> None:
+        """
+        Read content from CSV file and run a custom function on each row
+        @fname: file path with file name
+        @func: custom user function
+        """
+        sep = self.the['Seperator']
         currentWorkingPath = os.path.dirname(__file__)
         relativePath = os.path.join(currentWorkingPath, fname)
         with open(relativePath, 'r') as file:
             reader = csv.reader(file, delimiter=sep)
+            n = 0
             for row in reader:
-                func(row)
-    except Exception as e:
-        print('Some error occurred in readFromCSV function. Please try again. Error: ', e)
-        exit()
+                n = n + 1
+                func(row, n)
 
+    def csvTestFun(self, row: list, n: int):
+        """
+        Test function for csv test
+        @row: A single row from the CSV file
+        """
+        if n > 10:
+            return
+        else:
+            self.oo(row)
 
-def o(t: int | float | bool | str | dict) -> str:
-    """
-    Print values for a column or dict
-    @t: input to be printed
-    """
-    try:
-        if type(t) != dict:
+    def o(self, t: int | float | bool | str | dict) -> str:
+        """
+        Print values for a column/list or dict
+        @t: input to be printed
+        """
+        if type(t) != dict and type(t) != list:
             return str(t)
 
         def show(k, v):
@@ -113,58 +118,163 @@ def o(t: int | float | bool | str | dict) -> str:
             @k: key
             @v: val
             """
-            if str(k).find('^_') == -1:
-                v = o(v)
-                return len(t) == 0 and format(':{} {}', k, v) or str(v)
+            if str(k).find('_') != 0:
+                v = self.o(v)
+                return type(t) == dict and ':' + str(k).lower() + ' ' + v or str(v)
         valArr = []
-        counter = 0
-        tKeys = list(t.keys())
-        for key in tKeys:
-            valArr[counter] = show(key, t[key])
-        if len(t) == 0:
-            valArr.sort()
+        if type(t) == dict:
+            for key in list(t.keys()):
+                valArr.append(show(key, t[key]))
+                valArr.sort()
+        elif type(t) == list:
+            valArr = t
         return '{' + ' '.join(str(val) for val in valArr) + '}'
-    except Exception as e:
-        print('Some error occurred in o function. Please try again. Error: ', e)
-        exit()
 
-
-def oo(t: dict) -> dict:
-    """
-    Prints input object
-    @t: input object
-    """
-    try:
-        print(o(t))
+    def oo(self, t: dict) -> dict:
+        """
+        Prints input object
+        @t: input object
+        """
+        print(self.o(t))
         return t
-    except Exception as e:
-        print('Some error occurred in oo function. Please try again. Error: ', e)
-        exit()
 
-# Todo : Remove this once other user defined functions are ready
+    def runTests(self):
+        """
+        Runs all defined tests
+        """
+        def runs(k):
+            """
+            Runs a specific test
+            @k: Key of test
+            """
+            err = ''
+            if k not in eg:
+                return
+            old = {}
+            out = None
+            for key in list(self.the.keys()):
+                old[key] = self.the[key]
+            if self.the['dump'] == True:
+                status = True
+                out = eg[k]()
+            else:
+                status = False
+                try:
+                    out = eg[k]()
+                    status = True
+                except Exception as e:
+                    err = e
+                    # print('Something went wrong. ', e)
+            for key in list(old.keys()):
+                self.the[key] = old[key]
+            msg = status and ((out == True and 'PASS') or 'FAIL') or 'CRASH'
+            print('!!!!!!', msg, k, status)
+            return out or err
 
+        def Bad():
+            """
+            Test for a non-existent key
+            """
+            print(eg['abc'])
 
-def test(row: list) -> None:
-    """
-    Test function to use as user-defined function
-    @row: A single row from the CSV file
-    """
-    return None
+        def List():
+            """
+            Test to sort the list of tests
+            """
+            t = []
+            for i in list(eg.keys()):
+                t.append(i)
+            t.sort()
+            return t
+
+        def Ls():
+            """
+            Test to print the list of tests
+            """
+            print('\nExamples python -m src.main -e ...')
+            for fun in List():
+                print('\t{}'.format(fun))
+            return True
+
+        def All():
+            """
+            Test to run all tests
+            """
+            for i in List():
+                if i != 'ALL':
+                    print('\n-----------------------------------')
+                    if runs(i) == False:
+                        self.fails += 1
+            return True
+
+        def the():
+            """
+            Test to print value in 'the' object
+            """
+            self.oo(self.the)
+            return True
+
+        def sym():
+            """
+            Test for Sym class
+            """
+            sym = Sym()
+            for x in ["a", "a", "a", "a", "b", "b", "c"]:
+                sym.add(x)
+            mode, entropy = sym.mid(), sym.div()
+            entropy = (1000*entropy)//1/1000
+            self.oo({"mid": mode, "div": entropy})
+            return mode == "a" and 1.37 <= entropy and entropy <= 1.38
+
+        def num():
+            """
+            Test for Num class
+            """
+            num = Num(self.the)
+            for i in range(1, 101):
+                num.add(i)
+            mid, div = num.mid(), num.div()
+            print(mid, div)
+            return 50 <= mid and mid <= 52 and 30.5 < div and div < 32
+
+        def bignum():
+            """
+            Test for Num class with reservoir sampler
+            """
+            num = Num(self.the)
+            self.the['nums'] = 32
+            for i in range(1, 1001):
+                num.add(i)
+            self.oo(num.nums())
+            return 32 == len(num._has)
+
+        def csv():
+            """
+            Test for readability from CSV file
+            """
+            self.readFromCSV('../data/input.csv', self.csvTestFun)
+            return True
+
+        eg = {
+            'BAD': Bad,
+            'LIST': List,
+            'LS': Ls,
+            'ALL': All,
+            'the': the,
+            'sym': sym,
+            'num': num,
+            'bignum': bignum,
+            'csv': csv
+        }
+        runs(self.the['eg'])
 
 
 def main():
     """
     Main function
     """
-    try:
-        help = getConstant('help')
-        the = {}
-        the = getValuesFromHelp(help)
-        the = cli(the, help)
-        dataSet = readFromCSV('../data/input.csv', the, test)
-    except Exception as e:
-        print('Something went wrong in the main function. Please try again', e)
-        exit()
+    csvObj = Csv()
+    csvObj.runTests()
 
 
 if __name__ == "__main__":
