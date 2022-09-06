@@ -41,6 +41,17 @@
     - Run:
 
       `python -m src.main`
+    
+    - Test (these are raw steps, we'll add more later on...):
+
+      `- To run just the sym test without stacktrace: python -m src.main -e sym`
+      
+      `- To run just the sym test with stacktrace: python -m src.main -e sym -d`
+      
+      `- To run all test without stacktrace: python -m src.main -e ALL`
+      
+      `- To run all test with stacktrace: python -m src.main -e ALL -d`
+      
 
 ## Directory structure
 
