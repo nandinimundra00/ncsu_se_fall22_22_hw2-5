@@ -10,20 +10,16 @@
 [![Github closed pull requests](https://img.shields.io/github/issues-pr-closed/agupta15k/ncsu_se_fall22_22_hw2-5?color=blue)](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/pulls?q=is%3Apr+is%3Aclosed)
 [![Github all contributors](https://img.shields.io/github/contributors/agupta15k/ncsu_se_fall22_22_hw2-5?color=green)](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/graphs/contributors)
 
-<!-- ## Why Calculator? -->
+<!-- ## Objective? -->
 
-<!-- With all the day-to-day expenses you would always like to have a summation tool to reduce un-necessary expenses and be updated with the amount spent.
-
-`"Money often costs too much"` - Ralph Waldo Emerson
-
-`Calculator` is a command line tool that helps you to do arithematic operations on your day to day expenses and helps you be on track. -->
+<!-- Converting a LUA based system into python based library.. -->
 
 - **Built on**
 
   <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="40" height="40" />
 
 - **Language used:** Python
-- **Libraries used:** pytest
+- **Libraries used:** None so far...we are trying to create functions for everthing :)
 
 ## Getting started:
 
@@ -38,17 +34,13 @@
 
   - ### Run Instructions
 
-    - Clone [this (Calculator) github repo](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5).
+    - Clone [this (LUA to Python) github repo](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5).
 
     - Navigate to the project root directory
   
     - Run:
 
       `python -m src.main`
-    
-    - Test:
-
-      `python -m pytest`
 
 ## Directory structure
 
@@ -61,12 +53,11 @@
     ├── src
     │   ├── __init__.py                 # Init file for src directory
     │   ├── main.py                     # Main file for src directory
-    │   ├── operations.py               # Util file for calculator operations
+    │   ├── Num.py                      # Num class to get mid & div
+    │   ├── Sym.py                      # Sym class to get mid & div
     ├── tst
     │   ├── README.md                   # Readme file for unit tests
     │   ├── __init__.py                 # Init file for tst directory
-    │   ├── test_main.py                # Tests file for src/main.py
-    │   ├── test_operations.py          # Tests file for src/operations.py
     ├── .all-contributorsrc             # File for all-contributor bot
     ├── .gitattributes                  # File for git attributes
     ├── .gitignore                      # File for git ignore
@@ -75,6 +66,7 @@
     ├── LICENSE.md                      # MIT License details
     ├── README.md                       # Readme file for repository
     ├── requirements.txt                # Details of dependency packages
+    ├── INSTALL.md                      # Installation steps for complex packages
     └── setup.py                        # Setup file for the module
 
 ## Roadmap
