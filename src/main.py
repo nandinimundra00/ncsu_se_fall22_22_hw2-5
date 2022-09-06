@@ -219,7 +219,7 @@ class Csv:
             Test for Sym class
             """
             sym = Sym()
-            for i, x in ["a", "a", "a", "a", "b", "b", "c"]:
+            for x in ["a", "a", "a", "a", "b", "b", "c"]:
                 sym.add(x)
             mode, entropy = sym.mid(), sym.div()
             entropy = (1000*entropy)//1/1000
