@@ -46,6 +46,16 @@
         "test",
         "code"
       ]
+    },
+    {
+      "login": "sumitsinghhazard",
+      "name": "sumitsinghhazard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/112218156?v=4",
+      "profile": "https://github.com/sumitsinghhazard",
+      "contributions": [
+        "infra",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,

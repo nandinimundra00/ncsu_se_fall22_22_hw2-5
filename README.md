@@ -86,7 +86,7 @@
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -96,10 +96,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
+    <td align="center"><a href="https://github.com/nagarajumadamshetti"><img src="https://avatars.githubusercontent.com/u/42158715?v=4?s=100" width="100px;" alt=""/><br /><sub><b>nagaraj madamshetti</b></sub></a><br /><a href="#infra-nagarajumadamshetti" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/commits?author=nagarajumadamshetti" title="Tests">⚠️</a> <a href="https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/commits?author=nagarajumadamshetti" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/agupta15k"><img src="https://avatars.githubusercontent.com/u/112216701?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Akash Gupta</b></sub></a><br /><a href="#infra-agupta15k" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/commits?author=agupta15k" title="Tests">⚠️</a> <a href="https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/commits?author=agupta15k" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Arunsp2000"><img src="https://avatars.githubusercontent.com/u/56639917?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Arunsp2000</b></sub></a><br /><a href="https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/commits?author=Arunsp2000" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/nagarajumadamshetti"><img src="https://avatars.githubusercontent.com/u/42158715?v=4?s=100" width="100px;" alt=""/><br /><sub><b>nagaraj madamshetti</b></sub></a><br /><a href="#infra-nagarajumadamshetti" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/commits?author=nagarajumadamshetti" title="Tests">⚠️</a> <a href="https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/commits?author=nagarajumadamshetti" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/nitesh31mishra"><img src="https://avatars.githubusercontent.com/u/54522260?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nitesh Mishra</b></sub></a><br /><a href="#infra-nitesh31mishra" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/commits?author=nitesh31mishra" title="Tests">⚠️</a> <a href="https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/commits?author=nitesh31mishra" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/sumitsinghhazard"><img src="https://avatars.githubusercontent.com/u/112218156?v=4?s=100" width="100px;" alt=""/><br /><sub><b>sumitsinghhazard</b></sub></a><br /><a href="#infra-sumitsinghhazard" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/commits?author=sumitsinghhazard" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
