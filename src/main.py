@@ -4,6 +4,7 @@ import re
 from data.constants import getConstant
 import sys
 from src.Num import Num
+from src.sym import Sym
 
 
 # Todo : Move methods into their respective files
@@ -217,7 +218,13 @@ class Csv:
             """
             Test for Sym class
             """
-            print('abc')
+            sym = Sym()
+            for i, x in ["a", "a", "a", "a", "b", "b", "c"]:
+                sym.add(x)
+            mode, entropy = sym.mid(), sym.div()
+            entropy = (1000*entropy)//1/1000
+            self.oo({"mid": mode, "div": entropy})
+            return mode == "a" and 1.37 <= entropy and entropy <= 1.38
 
         def num():
             """
