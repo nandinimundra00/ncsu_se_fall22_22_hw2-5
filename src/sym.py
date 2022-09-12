@@ -22,7 +22,7 @@ class Sym:
 
     def __init__(self, c=0, s=""):
         self.n = 0
-        self.at = c
+        self.at = c + 1
         self.name = s
         self._has = {}
 

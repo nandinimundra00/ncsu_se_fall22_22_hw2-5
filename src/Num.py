@@ -1,6 +1,7 @@
 import math
 import sys
 import random
+import re
 
 
 '''
@@ -28,15 +29,15 @@ class Num:
 
     def __init__(self, the, c=0, s=""):
         self.n = 0
-        self.at = c
+        self.at = c + 1
         self.name = s
         self._has = {}
         self.lo = sys.maxsize
         self.hi = -sys.maxsize
         self.isSorted = True
-        self.w = 1 if (s or "").find("-$") == -1 else -1
-        self.the = the
-        random.seed(self.the['seed'])
+        self.w = -1 if re.search("-$", s or '') else 1
+        self._the = the
+        random.seed(self._the['seed'])
 
     '''
     Return kept numbers, sorted
@@ -57,14 +58,15 @@ class Num:
     '''
 
     def add(self, v):
+        floatV = float(v)
         pos = -1
-        if v != "?":
+        if floatV != "?":
             self.n = self.n + 1
-            self.lo = min(v, self.lo)
-            self.hi = max(v, self.hi)
-            if len(self._has) < self.the['nums']:
+            self.lo = min(floatV, self.lo)
+            self.hi = max(floatV, self.hi)
+            if len(self._has) < self._the['nums']:
                 pos = 1 + (len(self._has))
-            elif random.random() < (self.the['nums']/self.n):
+            elif random.random() < (self._the['nums']/self.n):
                 pos = random.randint(1, len(self._has))
             if pos != -1:
                 self.isSorted = False

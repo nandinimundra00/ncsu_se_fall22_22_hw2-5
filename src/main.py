@@ -1,10 +1,11 @@
-import csv
 import os
 import re
 from data.constants import getConstant
 import sys
 from src.Num import Num
 from src.sym import Sym
+from src.data import Data
+from src.utils import coerce
 
 
 # Todo : Move methods into their respective files
@@ -31,34 +32,8 @@ class Csv:
         matchedVals = re.findall('\n [-][^\s]+[\s]+[-][-]([^\s]+)[^\n]+= ([^\s]+)', self.help)
         updatedThe = {}
         for val in matchedVals:
-            updatedThe[val[0]] = self.coerce(val[1])
+            updatedThe[val[0]] = coerce(val[1])
         return updatedThe
-
-    def coerce(self, s: str) -> int | float | bool | str:
-        """
-        Parse 'the' config settings from 'help'
-        @s: string input
-        """
-        def fun(s1: str) -> bool | str:
-            """
-            Converts incoming string into either int, float or bool based on it's type
-            @s1: string input
-            """
-            if s1 == 'true' or s1.lower() == 'true':
-                return True
-            if s1 == 'false' or s1.lower() == 'false':
-                return False
-            return s1
-        val = s
-        try:
-            val = int(s)
-        except ValueError:
-            try:
-                val = float(s)
-            except ValueError:
-                # val = fun(s.strip())  Can run inbuilt strip to remove leading and trailing spaces, but using implementation similar to lua code
-                val = fun(re.search('^\s*(.+?)\s*$', s).group(1))
-        return val
 
     def cli(self, t: dict) -> dict:
         """
@@ -67,42 +42,19 @@ class Csv:
         """
         tKeys = list(t.keys())
         args = sys.argv
+        found = False
         for key in tKeys:
             val = str(t[key])
             for i in range(1, len(args)):
                 if args[i] == '-' + key[0:1] or args[i] == '--' + key:
+                    found = True
                     val = val == "False" and "True" or val == "True" and "False" or args[i + 1]
-            t[key] = self.coerce(val)
-        if t['help'] == True:
+            t[key] = coerce(val)
+        if t['help'] == True or found == False:
+            print('\nIncorrect flag entered. Refer the help string below for correct usage details:') if found == False else None
             print('\n', self.help, '\n')
             exit()
         return t
-
-    def readFromCSV(self, fname: str, func) -> None:
-        """
-        Read content from CSV file and run a custom function on each row
-        @fname: file path with file name
-        @func: custom user function
-        """
-        sep = self.the['Seperator']
-        currentWorkingPath = os.path.dirname(__file__)
-        relativePath = os.path.join(currentWorkingPath, fname)
-        with open(relativePath, 'r') as file:
-            reader = csv.reader(file, delimiter=sep)
-            n = 0
-            for row in reader:
-                n = n + 1
-                func(row, n)
-
-    def csvTestFun(self, row: list, n: int):
-        """
-        Test function for csv test
-        @row: A single row from the CSV file
-        """
-        if n > 10:
-            return
-        else:
-            self.oo(row)
 
     def o(self, t: int | float | bool | str | dict) -> str:
         """
@@ -120,11 +72,13 @@ class Csv:
             """
             if str(k).find('_') != 0:
                 v = self.o(v)
-                return type(t) == dict and ':' + str(k).lower() + ' ' + v or str(v)
+                return type(t) == dict and ':' + str(k).lower() + ' ' + str(coerce(v)) or str(v)
         valArr = []
         if type(t) == dict:
             for key in list(t.keys()):
-                valArr.append(show(key, t[key]))
+                showOutput = show(key, t[key])
+                if (showOutput):
+                    valArr.append(showOutput)
                 valArr.sort()
         elif type(t) == list:
             valArr = t
@@ -137,6 +91,26 @@ class Csv:
         """
         print(self.o(t))
         return t
+
+    def rogues(self, b4: dict) -> None:
+        """
+        Find rogue locals
+        @b4: Dictionary of environment variables at the beginning of the run
+        """
+        envs = dict(os.environ)
+        for key in list(envs.keys()):
+            if not b4[key]:
+                print('?', key, type(envs[key]))
+
+    def csvTestFun(self, rowObj: dict):
+        """
+        Test function for csv test
+        @rowObj: A single row object from the CSV file
+        """
+        if list(rowObj.keys())[0] > 10:
+            return
+        else:
+            self.oo(list(rowObj.values())[0])
 
     def runTests(self):
         """
@@ -252,7 +226,17 @@ class Csv:
             """
             Test for readability from CSV file
             """
-            self.readFromCSV('../data/input.csv', self.csvTestFun)
+            data = Data(self.the, [])
+            data.readFromCSV('../data/input.csv', self.csvTestFun)
+            return True
+
+        def data():
+            """
+            Test data class
+            """
+            data = Data(self.the, '../data/input.csv')
+            for col in data.cols.y + data.cols.x:
+                self.oo(vars(col))
             return True
 
         eg = {
@@ -264,17 +248,27 @@ class Csv:
             'sym': sym,
             'num': num,
             'bignum': bignum,
-            'csv': csv
+            'csv': csv,
+            'data': data
         }
         runs(self.the['eg'])
+        return self.fails
 
 
 def main():
     """
     Main function
     """
+    # Find and store environment variables
+    b4 = {}
+    envs = dict(os.environ)
+    for key in list(envs.keys()):
+        b4[key] = envs[key]
+    # Initiate the main object
     csvObj = Csv()
-    csvObj.runTests()
+    fails = csvObj.runTests()
+    csvObj.rogues(b4)
+    return fails
 
 
 if __name__ == "__main__":
