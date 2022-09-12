@@ -138,6 +138,7 @@ class Csv:
                     status = True
                 except Exception as e:
                     err = e
+                    self.fails += 1
                     # print('Something went wrong. ', e)
             for key in list(old.keys()):
                 self.the[key] = old[key]
@@ -268,7 +269,7 @@ def main():
     csvObj = Csv()
     fails = csvObj.runTests()
     csvObj.rogues(b4)
-    return fails
+    print('\nNumber of failed tests: ', fails)
 
 
 if __name__ == "__main__":
