@@ -2,8 +2,6 @@
 Class Row holds one record 
 '''
 
-import math
-
 
 class Row:
     '''
