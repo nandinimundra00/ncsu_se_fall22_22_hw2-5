@@ -20,7 +20,7 @@ class Cols:
     Arguments:
     @names: column names
     '''
-    def __init__(self, names) -> None:
+    def __init__(self, names, the) -> None:
         self.names = names 
         self.all = []
         self.klass = None
@@ -34,8 +34,8 @@ class Cols:
         For the atributes "x" and "y" we skip all columns which end with ":".
         '''
         for i in range(len(names)):
-            if(re.search("\*[A-Z]", names[i])):
-                self.all.append(Num(i, names[i]))
+            if(re.search("^[A-Z]", names[i])):
+                self.all.append(Num(the, i, names[i]))
             else:
                 self.all.append(Sym(i, names[i]))
             
@@ -54,11 +54,11 @@ class Cols:
 # def showStats():
 #     li = ["Clndrs","Volume","Hp:","Lbs-","Acc+","Model","origin","Mpg+"]
         
-#     cols = Cols(li)
+#     cols = Cols(li,{"seed":2})
 
 #     # print(cols.all)
 #     for i in cols.all:
-#         print(i.name)
+#         print(i.name, " ", i)
     
 #     print("-"*100)
 #     for i in cols.x:
