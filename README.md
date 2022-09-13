@@ -19,7 +19,7 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="40" height="40" />
 
 - **Language used:** Python
-- **Libraries used:** None so far...we are trying to create functions for everthing :)
+- **Libraries used:** [re](https://docs.python.org/3/library/re.html), [os](https://docs.python.org/3/library/os.html), [csv](https://docs.python.org/3/library/csv.html), [sys](https://docs.python.org/3/library/sys.html), [math](https://docs.python.org/3/library/math.html)
 
 ## Getting started:
 
@@ -39,18 +39,18 @@
     - Navigate to the project root directory
   
     - Run:
-
-      `python -m src.main`
     
-    - Test (these are raw steps, we'll add more later on...):
-
-      `- To run just the sym test without stacktrace: python -m src.main -e sym`
+      - Test:
       
-      `- To run just the sym test with stacktrace: python -m src.main -e sym -d`
-      
-      `- To run all test without stacktrace: python -m src.main -e ALL`
-      
-      `- To run all test with stacktrace: python -m src.main -e ALL -d`
+        - To run all tests, run the command `python -m src.main -e ALL`
+        
+        - To run a specific test, run the command `python -m src.main -e <test-name>`
+        
+        - To see a list of test names, run the command `python -m src.main -e LS`
+        
+        - To see the help section, run the command `python -m src.main -h`
+        
+        - If any of the tests fail, use `-d` flag to see stack trace
       
 
 ## Directory structure
@@ -58,14 +58,22 @@
     .
     ├── .github
     │   ├── workflows          
-    │   │   ├── python-app.yml          # Workflow for git actions
+    │   │   ├── run-test.yml            # Workflow for git actions
     ├── Docs
     │   ├── TestFile.md                 # Test file
+    ├── data
+    |   ├── README.md                   # Readme file for data folder
+    |   ├── constants.py                # Contains constants to be used by other code
+    |   ├── input.csv                   # Input file used for testing the logic
     ├── src
     │   ├── __init__.py                 # Init file for src directory
     │   ├── main.py                     # Main file for src directory
     │   ├── Num.py                      # Num class to get mid & div
-    │   ├── Sym.py                      # Sym class to get mid & div
+    │   ├── sym.py                      # Sym class to get mid & div
+    |   ├── cols.py                     # Cols class with its methods
+    |   ├── data.py                     # Data class to handle data from csv
+    |   ├── row.py                      # Rows class with its methods
+    |   ├── utils.py                    # Misc utils
     ├── tst
     │   ├── README.md                   # Readme file for unit tests
     │   ├── __init__.py                 # Init file for tst directory
