@@ -1,5 +1,6 @@
 import os
 import csv
+import math
 from src.Num import Num
 from src.sym import Sym
 from src.cols import Cols
@@ -80,30 +81,28 @@ class Data:
             for obj_col in todo:
                 obj_col.add(list(temp_row.cells.values())[0][obj_col.at - 1])
 
-    # def abc(self,a,b):
-    #     return a+b
+    def rnd(self, x, places):
+        mult = math.pow(x,places)
+        result =  math.floor(x * mult + 0.5) / mult
+        return result
 
-    def stats(self, places=None, showcols=None, func=None) -> dict:
+
+    def stats(self, places=None, showcols=None, funcnm=None) -> dict:
         if places is None:
             places = 2
         if showcols is None:
             showcols = self.cols.y
-        if func is None:
-            func = self.div
+        if funcnm is None:
+            funcnm = 'mid'
         t = {}
         print(showcols)
-        '''In Progress...'''
-        # for i in range(len(showcols)):
-        #     #print(type(showcols[i]))
-        #     class_name = type(showcols[i]).__name__
-        #     func_name = class_name + "." + func
-        #     print(func_name)
-        #     #v = eval('func_name(showcols[i])')
-        #     v = eval('math.pi(5,6)')
-        #     print(v)
-        #     if type(v) == int:
-        #         v = self.rnd(v, places)
-        #     t[showcols[i].name] = v
+        for i in range(showcols):
+            fun = getattr(showcols[i], funcnm)
+            v = fun()
+            #print(v)
+            if type(v) == int:
+                v = self.rnd(v, places)
+            t[showcols[i].name] = v
         return t
 
 
