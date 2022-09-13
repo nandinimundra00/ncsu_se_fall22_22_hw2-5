@@ -95,11 +95,8 @@ class Data:
         if funcnm is None:
             funcnm = 'mid'
         t = {}
-        print(showcols)
-        for i in range(showcols):
-            fun = getattr(showcols[i], funcnm)
-            v = fun()
-            #print(v)
+        for i in range(len(showcols)):
+            v = funcnm(showcols[i])
             if type(v) == int:
                 v = self.rnd(v, places)
             t[showcols[i].name] = v

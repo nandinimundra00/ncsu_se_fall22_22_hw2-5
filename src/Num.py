@@ -47,6 +47,8 @@ class Num:
         vals = list(self._has.values())
         if not self.isSorted:
             vals.sort()
+            for i in range(1, len(vals) + 1):
+                self._has[i] = vals[i - 1]
             self.isSorted = True
         return vals
 
@@ -83,7 +85,7 @@ class Num:
     def div(self) -> float:
         a = self.nums()
         # 2.58 as per (https://github.com/txt/se22/blob/main/etc/pdf/csv.pdf). Readme in HW states 2.56 though
-        return (self.per(a, 0.9) - self.per(a, 0.1)) / 2.58
+        return round((self.per(a, 0.9) - self.per(a, 0.1)) / 2.58, 3)
 
     '''
     Central tendancy (median for Nums, mode for Syms)

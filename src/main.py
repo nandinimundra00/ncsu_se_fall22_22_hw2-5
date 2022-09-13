@@ -1,5 +1,6 @@
 import os
 import re
+from src.cols import Cols
 from data.constants import getConstant
 import sys
 from src.Num import Num
@@ -72,7 +73,7 @@ class Csv:
             """
             if str(k).find('_') != 0:
                 v = self.o(v)
-                return type(t) == dict and ':' + str(k).lower() + ' ' + str(coerce(v)) or str(v)
+                return type(t) == dict and ':' + str(k) + ' ' + str(coerce(v)) or str(v)
         valArr = []
         if type(t) == dict:
             for key in list(t.keys()):
@@ -236,8 +237,23 @@ class Csv:
             Test data class
             """
             data = Data(self.the, '../data/input.csv')
-            for col in data.cols.y + data.cols.x:
+            for col in data.cols.y:
                 self.oo(vars(col))
+            return True
+
+        def stats():
+            """
+            Test stats class
+            """
+            data = Data(self.the, '../data/input.csv')
+            def div(col):
+                return col.div()
+            def mid(col):
+                return col.mid()
+            print("xmid", self.o( data.stats(2,data.cols.x, mid)))
+            print("xdiv", self.o( data.stats(3,data.cols.x, div)))
+            print("ymid", self.o( data.stats(2,data.cols.y, mid)))
+            print("ydiv", self.o( data.stats(3,data.cols.y, div)))
             return True
 
         eg = {
@@ -250,7 +266,8 @@ class Csv:
             'num': num,
             'bignum': bignum,
             'csv': csv,
-            'data': data
+            'data': data,
+            'stats': stats
         }
         runs(self.the['eg'])
         return self.fails
