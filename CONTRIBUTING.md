@@ -1,4 +1,4 @@
-# Contributing to SimpleCalc
+# Contributing to Migration of Lua Code to Python
 :clap:First off, thanks for taking the time to contribute!:clap:
 
 We are looking forward to contributions that will enable lesser human intervention!
@@ -31,7 +31,7 @@ This section guides you through submitting a bug report.
 
 ### Suggesting Enhancements
 
-This section guides you through submitting an enhancement suggestion for SimpleCalc.
+This section guides you through submitting an enhancement suggestion for the Migration of Lua Code to Python.
 
 #### Before Submitting An Enhancement Suggestion
 * Check the **debugging guide.**
