@@ -73,7 +73,7 @@ class Csv:
             """
             if str(k).find('_') != 0:
                 v = self.o(v)
-                return type(t) == dict and ':' + str(k).lower() + ' ' + str(coerce(v)) or str(v)
+                return type(t) == dict and ':' + str(k) + ' ' + str(coerce(v)) or str(v)
         valArr = []
         if type(t) == dict:
             for key in list(t.keys()):
