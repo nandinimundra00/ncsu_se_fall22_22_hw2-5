@@ -40,10 +40,10 @@ class Cols:
                 self.all.append(Sym(i, names[i]))
             
             if(not re.search(":$", names[i])):
-                if(re.search("\+$", names[i])):
-                    self.x.append(self.all[i])
-                elif(re.search("\-$", names[i])):
+                if(re.search("[\+\-]$", names[i])):
                     self.y.append(self.all[i])
+                else:
+                    self.x.append(self.all[i])
 
                 if(re.search("!$", names[i])):
                     self.klass = self.all[i]

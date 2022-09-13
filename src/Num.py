@@ -83,7 +83,7 @@ class Num:
     def div(self) -> float:
         a = self.nums()
         # 2.58 as per (https://github.com/txt/se22/blob/main/etc/pdf/csv.pdf). Readme in HW states 2.56 though
-        return (self.per(a, 0.9) - self.per(a, 0.1)) / 2.58
+        return (self.per(a, 0.9) - self.per(a, 0.1)) / 2.56
 
     '''
     Central tendancy (median for Nums, mode for Syms)
