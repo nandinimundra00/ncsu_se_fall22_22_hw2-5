@@ -47,31 +47,3 @@ class Cols:
 
                 if(re.search("!$", names[i])):
                     self.klass = self.all[i]
-
-
-
-''' Can remove after testing, just to see the values outputted from the variables'''
-# def showStats():
-#     li = ["Clndrs","Volume","Hp:","Lbs-","Acc+","Model","origin","Mpg+"]
-        
-#     cols = Cols(li,{"seed":2})
-
-#     # print(cols.all)
-#     for i in cols.all:
-#         print(i.name, " ", i)
-    
-#     print("-"*100)
-#     for i in cols.x:
-#         print(i.name)
-#     # print(cols.x)
-#     # print(cols.y)
-#     print("-"*100)
-#     for i in cols.y:
-#         print(i.name)
-#     print("-"*100)
-#     print(cols.names)
-#     print(cols.klass)
-
-            
-
-# showStats()

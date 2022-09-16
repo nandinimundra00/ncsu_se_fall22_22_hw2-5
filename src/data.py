@@ -1,11 +1,8 @@
 import os
 import csv
 import math
-from src.Num import Num
-from src.sym import Sym
 from src.cols import Cols
 from src.row import Row
-from src.utils import coerce
 
 '''
 Class `Data` is a holder of `rows` and their summaries (in `cols`)
@@ -24,10 +21,11 @@ class Data:
     @src: input file name
     '''
 
-    def __init__(self, the, src) -> None:
+    def __init__(self, misc, src) -> None:
         self.cols = None
         self.rows = []
-        self._the = the
+        self.misc = misc
+        self._the = misc.the
 
         '''
         Check if the recived file name (variable src) is a string. 
@@ -60,7 +58,7 @@ class Data:
                 n = n + 1
                 parsedRow = []
                 for col in row:
-                    parsedRow.append(coerce(col))
+                    parsedRow.append(self.misc.coerce(col))
                 funcnm({n: parsedRow})
 
     def add(self, xs):
@@ -82,10 +80,9 @@ class Data:
                 obj_col.add(list(temp_row.cells.values())[0][obj_col.at - 1])
 
     def rnd(self, x, places):
-        mult = math.pow(x,places)
-        result =  math.floor(x * mult + 0.5) / mult
+        mult = math.pow(x, places)
+        result = math.floor(x * mult + 0.5) / mult
         return result
-
 
     def stats(self, places=None, showcols=None, funcnm=None) -> dict:
         if places is None:
@@ -101,35 +98,3 @@ class Data:
                 v = self.rnd(v, places)
             t[showcols[i].name] = v
         return t
-
-
-''' Can remove after testing, just to see the values outputted from the variables'''
-# def showStats():
-#     src = '../data/input.csv'
-#     the = {"Seperator":","}
-#     data = Data(the, src)
-
-#     cols = data.cols
-
-
-#     for i in cols.all:
-#         print(i.name)
-
-#     print("-"*100)
-#     for i in cols.x:
-#         print(i.name)
-#         print(i._has)
-#         print(i.at)
-#     # print(cols.x)
-#     # print(cols.y)
-#     print("-"*100)
-#     for i in cols.y:
-#         print(i.name)
-#     print("-"*100)
-#     print(cols.names)
-#     print(cols.klass)
-
-#     print(data.stats(func = 'mid'))
-
-
-# showStats()
