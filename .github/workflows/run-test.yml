@@ -36,4 +36,6 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with custom test engine
       run: |
-        python -m src.main -e ALL
+        failureStr=$(python -m src.main -e ALL | grep -i "Number of failed tests:")
+        numFailures=${failureStr:0-1}
+        if [ $numFailures -gt 1 ]; then exit $numFailures; else exit 0; fi
