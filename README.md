@@ -66,17 +66,19 @@
     |   ├── constants.py                # Contains constants to be used by other code
     |   ├── input.csv                   # Input file used for testing the logic
     ├── src
-    │   ├── __init__.py                 # Init file for src directory
-    │   ├── main.py                     # Main file for src directory
     │   ├── Num.py                      # Num class to get mid & div
-    │   ├── sym.py                      # Sym class to get mid & div
+    │   ├── __init__.py                 # Init file for src directory
     |   ├── cols.py                     # Cols class with its methods
     |   ├── data.py                     # Data class to handle data from csv
+    │   ├── main.py                     # Main file for src directory
+    │   ├── misc.py                     # File for all miscellaneous functions
     |   ├── row.py                      # Rows class with its methods
-    |   ├── utils.py                    # Misc utils
+    │   ├── sym.py                      # Sym class to get mid & div
     ├── tst
     │   ├── README.md                   # Readme file for unit tests
     │   ├── __init__.py                 # Init file for tst directory
+    │   ├── testEngine.py               # Contains code for test engine
+    │   ├── test_*.py                   # Specific test files
     ├── .all-contributorsrc             # File for all-contributor bot
     ├── .gitattributes                  # File for git attributes
     ├── .gitignore                      # File for git ignore
