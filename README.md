@@ -9,7 +9,7 @@
 [![Github pull requests](https://img.shields.io/github/issues-pr/agupta15k/ncsu_se_fall22_22_hw2-5?color=red)](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/pulls)
 [![Github closed pull requests](https://img.shields.io/github/issues-pr-closed/agupta15k/ncsu_se_fall22_22_hw2-5?color=blue)](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/pulls?q=is%3Apr+is%3Aclosed)
 [![Github all contributors](https://img.shields.io/github/contributors/agupta15k/ncsu_se_fall22_22_hw2-5?color=green)](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/graphs/contributors)
-[![Github workflow badge](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/actions/workflows/run-test.yml/badge.svg)](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/actions)
+[![Run lint and tests](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/actions/workflows/run-test.yml/badge.svg?branch=main)](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/actions/workflows/run-test.yml)
 
 <!-- ## Objective? -->
 
