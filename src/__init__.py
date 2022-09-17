@@ -1,1 +1,1 @@
-# Init file
+'''.. include:: ../README.md'''

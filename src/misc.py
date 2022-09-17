@@ -4,16 +4,11 @@ import sys
 import os
 
 
-'''
-Misc class handles all the utility functions
-'''
-
-
 class Misc:
+    '''
+    `Misc` class handles all the utility functions
+    '''
     def __init__(self) -> None:
-        """
-        Constructor to assing initial values
-        """
         self.help = getConstant('help')
         tempThe = self.getValuesFromHelp()
         self.the = self.cli(tempThe)
@@ -31,7 +26,10 @@ class Misc:
     def cli(self, t: dict) -> dict:
         """
         Update value in 'the' based on command line arguments. Print 'help' string if user enters help options
-        @t: 'the' object
+        
+        Arguments
+        ----------
+        t : the object
         """
         tKeys = list(t.keys())
         args = sys.argv
@@ -51,13 +49,20 @@ class Misc:
 
     def coerce(self, s: str) -> int | float | bool | str:
         """
-        Parse 'the' config settings from 'help'
-        @s: string input
+        Parse 'the' config settings from 'help'\n
+        Contains function fun which converts incoming strings into int, float or bool based on its type
+        
+        Arguments
+        ----------
+        s : string input
         """
         def fun(s1: str) -> bool | str:
             """
             Converts incoming string into either int, float or bool based on it's type
-            @s1: string input
+
+            Arguments
+            ----------
+            @s1 : string input
             """
             if s1 == 'true' or s1.lower() == 'true':
                 return True
@@ -77,7 +82,10 @@ class Misc:
     def o(self, t: int | float | bool | str | dict) -> str:
         """
         Print values for a column/list or dict
-        @t: input to be printed
+        
+        Arguments
+        ----------
+        t : input to be printed
         """
         if type(t) != dict and type(t) != list:
             return str(t)
@@ -85,8 +93,11 @@ class Misc:
         def show(k, v):
             """
             Ignore the values for keys starting with '_', else format the output in the form ':key val' or 'val'
-            @k: key
-            @v: val
+
+            Arguments
+            ----------
+            k : key
+            v : val
             """
             if str(k).find('_') != 0:
                 v = self.o(v)
@@ -105,7 +116,10 @@ class Misc:
     def oo(self, t: dict) -> dict:
         """
         Prints input object
-        @t: input object
+        
+        Arguments
+        ----------
+        t : input object
         """
         print(self.o(t))
         return t
@@ -113,7 +127,10 @@ class Misc:
     def rogues(self, b4: dict):
         """
         Find rogue locals
-        @b4: Dictionary of environment variables at the beginning of the run
+
+        Arguments
+        ----------
+        b4 : Dictionary of environment variables at the beginning of the run
         """
         envs = dict(os.environ)
         for key in list(envs.keys()):

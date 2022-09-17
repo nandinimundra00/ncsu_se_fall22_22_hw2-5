@@ -27,6 +27,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install flake8 pytest coverage
+        pip install pdoc3
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: |
@@ -45,3 +46,7 @@ jobs:
         codeCoverageStr=$(python -m coverage report | grep 'TOTAL')
         codeCoverage=$(echo $codeCoverageStr | awk '{print $4}')
         echo "Code coverage: $codeCoverage"
+    - name: Create documentation
+      run: |
+        pdoc src/ --output-dir Docs/ --force --html 
+        
