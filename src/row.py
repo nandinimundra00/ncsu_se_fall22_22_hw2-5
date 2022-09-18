@@ -1,34 +1,34 @@
-'''
-Class Row holds one record 
-'''
+
 
 
 class Row:
     '''
-    Constuctor which initializes the attributes
-
-    Attributes:
-    @cells: one record
-    @cooked: used if we discretize data
-    @isEvalved: true if y-values evaluated
-
-    Arguments:
-    @t: row in dictionary
+    Class `Row` holds one record 
     '''
 
     def __init__(self, t):
+        
+        '''
+        Arguments
+        ----------
+        t : row in dictionary
+        '''
         self.cells = t
+        '''Holds one record.'''
         self.cooked = copy(t)
+        '''Used if we discretize the data'''
         self.isEvalved = False
+        '''True if y-values evaluated'''
 
 
 ###Lists
-'''
-deepcopy lists additional helper functions
-'''
+
 
 
 def copy(t: dict):
+    '''
+    deepcopy lists additional helper functions
+    '''
     u = []
     if type(t) != dict:
         return t

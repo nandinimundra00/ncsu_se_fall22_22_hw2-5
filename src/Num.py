@@ -4,46 +4,41 @@ import random
 import re
 
 
-'''
-Class `Num` Summarizes a stream of numbers. 
-'''
-
-
 class Num:
     '''
-    Constuctor which initializes the attributes
-
-    Attributes:
-    @n: items seen
-    @at: column position
-    @name: column name
-    @_has: kept data
-    @lo: lowest seen
-    @hi: highest seen
-    @isSorted: no updates since last sort of data
-    @w: 
-    Arguments:
-    @c: column postition
-    @s: column name
+    Class `Num` Summarizes a stream of numbers. 
     '''
 
     def __init__(self, the, c=0, s=""):
+        '''
+        Arguments
+        ----------
+        c : column postition
+        s : column name
+        '''
         self.n = 0
+        '''Items seen'''
         self.at = c + 1
+        '''column position'''
         self.name = s
+        '''column name'''
         self._has = {}
+        '''kept data'''
         self.lo = sys.maxsize
+        '''lowest seen'''
         self.hi = -sys.maxsize
+        '''highest seen'''
         self.isSorted = True
+        '''no updates since last sort'''
         self.w = -1 if re.search("-$", s or '') else 1
         self._the = the
         random.seed(self._the['seed'])
 
-    '''
-    Return kept numbers, sorted
-    '''
 
     def nums(self) -> dict:
+        '''
+        Return kept numbers, sorted
+        '''
         vals = list(self._has.values())
         if not self.isSorted:
             vals.sort()
@@ -52,14 +47,17 @@ class Num:
             self.isSorted = True
         return vals
 
-    '''
-    Reservoir sampler. Keep at most `the['nums']` numbers 
-    (and if we run out of room, delete something old, at random).,
-    Arguments:
-    @v:
-    '''
+
 
     def add(self, v):
+        '''
+        Reservoir sampler. Keep at most `the['nums']` numbers 
+        (and if we run out of room, delete something old, at random).
+
+        Arguments
+        ----------
+        v : Value to be added
+        '''
         floatV = float(v)
         pos = -1
         if floatV != "?":
@@ -74,22 +72,24 @@ class Num:
                 self.isSorted = False
                 self._has[pos] = v
 
+    
     def per(self, t, p):
+        '''Mathematical formula for getting standard deviation'''
         p = math.floor(((p or 0.5) * len(t)) + 0.5)
         return t[max(1, min(len(t), p)) - 1]
 
-    '''
-    Diversity (standard deviation for Nums, entropy for Syms)
-    '''
 
     def div(self) -> float:
+        '''
+        Diversity (standard deviation for Nums, entropy for Syms)
+        '''
         a = self.nums()
         # 2.58 as per (https://github.com/txt/se22/blob/main/etc/pdf/csv.pdf). Readme in HW states 2.56 though
         return round((self.per(a, 0.9) - self.per(a, 0.1)) / 2.58, 3)
 
-    '''
-    Central tendancy (median for Nums, mode for Syms)
-    '''
 
     def mid(self) -> float:
+        '''
+        Central tendancy (median for Nums, mode for Syms)
+        '''
         return self.per(self.nums(), 0.5)

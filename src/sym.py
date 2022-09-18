@@ -1,39 +1,37 @@
 import math
 
-'''
-Class Sym which handles symmbolic characters 
-'''
-
-
 class Sym:
     '''
-    Constuctor which initializes the attributes
-
-    Attributes:
-    @n: items seen
-    @at: column position
-    @name: column name
-    @_has: kept data
-
-    Arguments:
-    @c: column postition
-    @s: column name
+    Class `Sym` which handles symmbolic characters
     '''
+   
 
     def __init__(self, c=0, s=""):
+        '''    
+        Arguments
+        ----------
+        c : Column position
+        s : Column name
+        '''
         self.n = 0
+        '''Items seen.'''
         self.at = c + 1
+        '''Column position.'''
         self.name = s
+        '''Column Name.'''
         self._has = {}
+        '''Kept data.'''
 
-    '''
-    Adding value to _has dictionary
-    
-    Arguments
-    @v: Value being added
-    '''
+
 
     def add(self, v):
+        '''
+        Adding value to _has dictionary
+    
+        Arguments
+        ----------
+        v : Value to be added
+        '''
         if v != "?":
             self.n += 1
             if (v not in self._has.keys()):
@@ -41,14 +39,11 @@ class Sym:
             else:
                 self._has[v] += 1
 
-    '''
-    Finding mode of the dictionary
-
-    @most: Most number of occurrences out of all keys present in the _has dictionary
-    @mode: Element which has occurred most number of times
-    '''
 
     def mid(self) -> str:
+        '''
+        Finding mode of the dictionary
+        '''
         most = -1
         for i in self._has:
             if (self._has[i] > most):
@@ -56,20 +51,18 @@ class Sym:
                 most = self._has[i]
         return mode
 
-    '''
-    Entropy Formula
-    '''
 
     def entropy(self, p):
+        '''
+        Entropy Formula
+        '''
         return (p*math.log2(p))
 
-    '''
-    Calculates the diversity of each variable using entropy formula
-
-    @e: Entropy
-    '''
 
     def div(self) -> float:
+        '''
+        Calculates the diversity of each variable using entropy formula
+        '''
         e = 0
         for i in self._has:
             if self._has[i] > 0:
