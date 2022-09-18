@@ -64,6 +64,8 @@
     │   │   ├── run-test.yml            # Workflow for git actions
     ├── Docs
     │   ├── TestFile.md                 # Test file
+    |   ├── src
+    |   |   ├── *.html                  # Documentation files per file
     ├── data
     |   ├── README.md                   # Readme file for data folder
     |   ├── constants.py                # Contains constants to be used by other code

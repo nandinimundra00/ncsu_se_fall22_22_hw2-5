@@ -35,18 +35,15 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with custom test engine
-      run: |
-        failureStr=$(python -m src.main -e ALL | grep -i "Number of failed tests:")
-        numFailures=${failureStr:0-1}
-        if [ $numFailures -gt 1 ]; then exit $numFailures; else exit 0; fi
-    - name: Generate code coverage
+    - name: Test and code coverage with custom test engine
       run: |
         python -m coverage run -m src.main -e ALL
         codeCoverageStr=$(python -m coverage report | grep 'TOTAL')
         codeCoverage=$(echo $codeCoverageStr | awk '{print $4}')
         echo "Code coverage: $codeCoverage"
+        failureStr=$(python -m src.main -e ALL | grep -i "Number of failed tests:")
+        numFailures=${failureStr:0-1}
+        if [ $numFailures -gt 1 ]; then exit $numFailures; else exit 0; fi        
     - name: Create documentation
       run: |
-        pdoc src/ --output-dir Docs/ --force --html 
-        
+        pdoc src/ --output-dir Docs/ --force --html
