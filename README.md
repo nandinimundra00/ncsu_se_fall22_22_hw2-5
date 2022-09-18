@@ -15,6 +15,8 @@
 
 <!-- Converting a LUA based system into python based library.. -->
 
+- [**Documentation**](https://htmlpreview.github.io/?https://raw.githubusercontent.com/agupta15k/ncsu_se_fall22_22_hw2-5/main/Docs/src/index.html)
+
 - **Built on**
 
   <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="40" height="40" />
