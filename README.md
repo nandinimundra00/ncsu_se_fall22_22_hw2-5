@@ -11,6 +11,7 @@
 [![Github all contributors](https://img.shields.io/github/contributors/agupta15k/ncsu_se_fall22_22_hw2-5?color=green)](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/graphs/contributors)
 [![Run lint and tests](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/actions/workflows/run-test.yml/badge.svg?branch=main)](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/actions/workflows/run-test.yml)
 [![Code coverage](https://img.shields.io/badge/Code%20Coverage-97%25-green)](https://github.com/agupta15k/ncsu_se_fall22_22_hw2-5/blob/main/coverage_report.txt)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7127569.svg)](https://doi.org/10.5281/zenodo.7127569)
 
 <!-- ## Objective? -->
 
