@@ -8,7 +8,7 @@ Repository being reviewed: https://github.com/Swarangigaurkar/Group30_Hw2_3_4_5
 |Number of commits| 3 | There are a good number of commits in this repo https://github.com/Swarangigaurkar/Group30_Hw2_3_4_5/commits/main |
 |Number of commits: by different people| 2 | The number of commits along with the changes made appear mostly balanced, except for one people https://github.com/Swarangigaurkar/Group30_Hw2_3_4_5/graphs/contributors |
 |Issues reports: there are 2| 1 | There are only 2 issues in opened state, and both of them are more of a todo list instead of issues https://github.com/Swarangigaurkar/Group30_Hw2_3_4_5/issues |
-|Issues are being closed| 4 | 14 issues closed |
+|Issues are being closed| 3 | 14 issues closed |
 |DOI badge: exists| 3 | DOI badge exists https://zenodo.org/record/7113667#.YzZ5d3bMLEY |
 |Docs: docs generated, format not ugly | 1 | Some amount of documentation present in the Readme, no specific documentation link present |
 |Docs: what: point descriptions of each class/function (in isolation) | 0 | 'what' documentation not present |
@@ -19,12 +19,12 @@ Repository being reviewed: https://github.com/Swarangigaurkar/Group30_Hw2_3_4_5
 |Use of style checkers | 0 | No style checkers present |
 |Use of code formatters | 0 | No code formatters present |
 |Use of syntax checkers | 0 | No syntax checkers present |
-|Use of code coverage | 5 | Code badge or report present |
+|Use of code coverage | 3 | Code badge or report present |
 |Other automated analysis tools| 3 | Github actions used |
 |Test cases exist (dozens of tests and those test cases are more than 30% of the code base)| 3 | All test cases covered |
 |Test cases are routinely executed (E.g. travis-com.com or github actions or something) | 3 | Github actions used |
-|The files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up| 3 | Descriptive contributing standards file present https://github.com/Swarangigaurkar/Group30_Hw2_3_4_5/blob/main/CONTRIBUTING.md |
-|Issues are discussed before they are closed (even if you discuss in slack, need a sumamry statement here) | 3 | Closed issues do have little discussion |
+|The files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up| 3 | Descriptive contributing standards file present https://github.com/Swarangigaurkar/Group30_Hw2_3_4_5/blob/main/Contributing.md |
+|Issues are discussed before they are closed (even if you discuss in slack, need a sumamry statement here) | 2 | Closed issues do have little discussion |
 |Chat channel: exists (Link or screenshots)| 0 | No chat channel evidence |
 |Test cases: a large proportion of the issues related to handling failing cases.(If a test case fails, open an issue and fix it) | 0 | No issues present for test case failures |
 |Evidence that the whole team is using the same tools: everyone can get to all tools and files| 3 | Everybody contributed to development |
