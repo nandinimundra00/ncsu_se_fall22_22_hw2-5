@@ -1,4 +1,4 @@
-Respository being reviewed: https://github.com/akshat22/SE_HW2345
+Repository being reviewed: https://github.com/akshat22/SE_HW2345
 
 |Notes|Points|Evidence|
 |-----|------|---------|
